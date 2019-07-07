@@ -3,8 +3,8 @@ Const xlDown = -4121
 
 '===============================================================================
 ' Setup the target Excel files.
-Const FlNmFm = "C:\Users\Test\Before.xlsx"
-Const FlNmTo = "C:\Users\Test\After.xlsx"
+Const FlNmFm = "C:\work\Test\GitHub\VBS_TEST\cp_1\Before.xlsx"
+Const FlNmTo = "C:\work\Test\GitHub\VBS_TEST\cp_1\After.xlsx"
 
 ' Target Sheet Name
 Const StNmCmp = "Sample"
