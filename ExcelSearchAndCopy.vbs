@@ -29,6 +29,7 @@ Else
 	ExcelCtrlFunc()
 
 	' --Excel quit
+	oXlsApp.Application.StatusBar = ""
 	oXlsApp.Quit
 	Set oXlsApp = Nothing
 End If
@@ -59,6 +60,7 @@ Sub ExcelCtrlFunc()
 
 	' --Execute control_functions-------------------------------
 	Dim result: result = CheckAndCopy_2(oShtFm, oShtTo, nCmpEndLnFm, nCmpEndLnTo)
+	oXlsApp.Application.StatusBar = "Script Finish!"
 	MsgBox "Script Finish!"
 	' ----------------------------------------------------------
 
