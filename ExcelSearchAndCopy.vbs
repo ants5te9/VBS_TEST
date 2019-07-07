@@ -58,7 +58,7 @@ Sub ExcelCtrlFunc()
 '	msgbox UBound(CmpFmR) & ", " & UBound(CmpToR) & ", " & UBound(CpyFmR) & ", " & UBound(CpyToR)
 
 	' --Execute control_functions-------------------------------
-	Dim result: result = CheckAndCopy_1(oShtFm, oShtTo, nCmpEndLnFm, nCmpEndLnTo)
+	Dim result: result = CheckAndCopy_2(oShtFm, oShtTo, nCmpEndLnFm, nCmpEndLnTo)
 	MsgBox "Script Finish!"
 	' ----------------------------------------------------------
 
@@ -101,7 +101,7 @@ Function CheckAndCopy_1(oShtFm, oShtTo, nCmpEndLnFm, nCmpEndLnTo)
 				End If
 			Next
 
-			'     MsgBox "Ln(" & nCmpLnTo & "," & nCmpLnFm & ") match: " & bMatch & vbCrLf & sCmpTo & vbCrLf & sCmpFm
+'			MsgBox "Ln(" & nCmpLnTo & "," & nCmpLnFm & ") match: " & bMatch & vbCrLf & sCmpTo & vbCrLf & sCmpFm
 			' ------- Copy Row in copy array ----------------------------------------
 			If bMatch = 1 Then
 				Dim bWrote
@@ -135,6 +135,62 @@ Function CheckAndCopy_1(oShtFm, oShtTo, nCmpEndLnFm, nCmpEndLnTo)
 End Function
 
 Function CheckAndCopy_2(oShtFm, oShtTo, nCmpEndLnFm, nCmpEndLnTo)
- Dim objDict: Set objDict = CreateObject("Scripting.Dictionary")
+	Dim objDict: Set objDict = CreateObject("Scripting.Dictionary")
+	Dim nCmpLnFm, nCmpLnTo
+	Dim iCmp, sCellVal
+
+	' Loop with CheckSheets.
+	For nCmpLnFm = 2 To nCmpEndLnFm  ' Because the top line is caption, start with 2.
+		' --collect key data.
+		Dim sChkFm: sChkFm = ""
+		For iCmp = 0 To UBound(CmpFmR)
+			sCellVal = oShtFm.Cells(nCmpLnFm, CmpFmR(iCmp)).value
+			sChkFm = sChkFm & sCellVal & " - "
+		Next
+		
+		' --set dictionary.
+		' key = string connected with check_cells_value, data = line number
+		objDict.Add sChkFm, nCmpLnFm
+
+		' status update
+		oXlsApp.Application.StatusBar = "Step1: " & nCmpLnFm & "/" & nCmpEndLnFm & " Processing..."
+	Next
+
+	' Loop with TargetSheets.
+	For nCmpLnTo = 2 To nCmpEndLnTo  ' Because the top line is caption, start with 2.
+		' --collect key data.
+		Dim sChkTo: sChkTo = ""
+		For iCmp = 0 To UBound(CmpToR)
+			sCellVal = oShtTo.Cells(nCmpLnTo, CmpToR(iCmp)).value
+			sChkTo = sChkTo & sCellVal & " - "
+		Next
+		
+		' --check dictionary.
+		Dim sExist
+		If objDict.Exists(sChkTo) Then
+			' --copy data.
+			sExist = "T"
+			Dim nCpyLnFm: nCpyLnFm = objDict(sChkTo)
+			For iCmp = 0 To UBound(CpyFmR)
+				If oShtTo.Cells(nCmpLnTo, CpyToR(iCmp)).value <> "" Then
+					' not write
+				Else
+					If CpyFmR(iCmp) = 10 Then
+						' Copy only value
+						oShtTo.Cells(nCmpLnTo, CpyToR(iCmp)).value = oShtFm.Cells(nCpyLnFm, CpyFmR(iCmp)).value
+					Else
+						' Copy with property
+						oShtFm.Cells(nCpyLnFm, CpyFmR(iCmp)).Copy oShtTo.Cells(nCmpLnTo, CpyToR(iCmp))
+					End If
+				End If
+			Next
+		Else
+			sExist = "F"
+'			msgbox objDict.Exists(sChkTo) & ":" & sChkTo
+		End If
+
+		' status update
+		oXlsApp.Application.StatusBar = "Step2: [" & sExist & "] " & nCmpLnTo & "/" & nCmpEndLnTo & " Processing..."
+	Next
 
 End Function
