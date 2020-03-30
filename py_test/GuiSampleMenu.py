@@ -1,0 +1,90 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file '.\PyTest\GuiSampleMenu.ui'
+#
+# Created by: PyQt5 UI code generator 5.6
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(819, 627)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 231, 601))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.treeWidget = QtWidgets.QTreeWidget(self.horizontalLayoutWidget)
+        self.treeWidget.setObjectName("treeWidget")
+        self.treeWidget.headerItem().setText(0, "1")
+        self.horizontalLayout.addWidget(self.treeWidget)
+        self.verticalScrollBar = QtWidgets.QScrollBar(self.horizontalLayoutWidget)
+        self.verticalScrollBar.setOrientation(QtCore.Qt.Vertical)
+        self.verticalScrollBar.setObjectName("verticalScrollBar")
+        self.horizontalLayout.addWidget(self.verticalScrollBar)
+        self.horizontalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(230, -1, 591, 151))
+        self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.listWidget = QtWidgets.QListWidget(self.horizontalLayoutWidget_2)
+        self.listWidget.setObjectName("listWidget")
+        self.horizontalLayout_2.addWidget(self.listWidget)
+        self.horizontalLayoutWidget_3 = QtWidgets.QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_3.setGeometry(QtCore.QRect(229, 149, 591, 451))
+        self.horizontalLayoutWidget_3.setObjectName("horizontalLayoutWidget_3")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_3)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.tableWidget = QtWidgets.QTableWidget(self.horizontalLayoutWidget_3)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.horizontalLayout_3.addWidget(self.tableWidget)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 819, 21))
+        self.menubar.setObjectName("menubar")
+        self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setObjectName("menuFile")
+        self.menuOption = QtWidgets.QMenu(self.menubar)
+        self.menuOption.setObjectName("menuOption")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.actionOpen_mot_file = QtWidgets.QAction(MainWindow)
+        self.actionOpen_mot_file.setObjectName("actionOpen_mot_file")
+        self.actionSave_Report = QtWidgets.QAction(MainWindow)
+        self.actionSave_Report.setObjectName("actionSave_Report")
+        self.actionID_Size = QtWidgets.QAction(MainWindow)
+        self.actionID_Size.setObjectName("actionID_Size")
+        self.actionMax_Size = QtWidgets.QAction(MainWindow)
+        self.actionMax_Size.setObjectName("actionMax_Size")
+        self.menuFile.addAction(self.actionOpen_mot_file)
+        self.menuFile.addAction(self.actionSave_Report)
+        self.menuOption.addAction(self.actionID_Size)
+        self.menuOption.addAction(self.actionMax_Size)
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuOption.menuAction())
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.menuOption.setTitle(_translate("MainWindow", "Option"))
+        self.actionOpen_mot_file.setText(_translate("MainWindow", "Open *.mot file"))
+        self.actionSave_Report.setText(_translate("MainWindow", "Save Report"))
+        self.actionID_Size.setText(_translate("MainWindow", "ID Size"))
+        self.actionMax_Size.setText(_translate("MainWindow", "Max Size"))
+
