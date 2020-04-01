@@ -10,7 +10,7 @@ from PyQt5.QtWidgets import (QPushButton, QWidget,
 class Button(QPushButton):
 
     def __init__(self, title, parent):
-        super().__init__(title, parent)
+        super(Button, self).__init__(title, parent)
 
         # ボタンに対してドロップ操作を可能にする
         self.setAcceptDrops(True)
@@ -33,7 +33,7 @@ class Button(QPushButton):
 class Example(QWidget):
 
     def __init__(self):
-        super().__init__()
+        super(Example, self).__init__()
 
         self.initUI()
 

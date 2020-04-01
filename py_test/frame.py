@@ -9,7 +9,7 @@ from PyQt5.QtCore import Qt
 
 class RadioFrame(QFrame):
     def __init__(self, parent=None):
-        super().__init__(parent)
+        super(RadioFrame, self).__init__(parent)
 
         radio1 = QRadioButton("Radio1")
         radio2 = QRadioButton("Radio2")
@@ -35,7 +35,7 @@ class RadioFrame(QFrame):
 
 class CheckFrame(QFrame):
     def __init__(self, parent=None):
-        super().__init__(parent)
+        super(CheckFrame, self).__init__(parent)
 
         self.check1 = QCheckBox("Check1")
         self.check2 = QCheckBox("Check2")
@@ -58,7 +58,7 @@ class CheckFrame(QFrame):
 
 class ComboFrame(QFrame):
     def __init__(self, parent=None):
-        super().__init__(parent)
+        super(ComboFrame, self).__init__(parent)
 
         label = QLabel("Select")
 
@@ -85,7 +85,7 @@ class ComboFrame(QFrame):
 
 class Main(QWidget):
     def __init__(self):
-        super().__init__()
+        super(Main, self).__init__()
 
         hbox = QHBoxLayout(self)
 

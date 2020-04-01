@@ -16,7 +16,7 @@ sns.set()
 
 class Main(QDialog):
     def __init__(self, parent=None):
-        super().__init__(parent)
+        super(Main, self).__init__(parent)
 
         fig = Figure(figsize=(8, 6), dpi=80)
 

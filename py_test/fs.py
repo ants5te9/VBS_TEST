@@ -7,7 +7,7 @@ from PyQt5.QtCore import QDir
 
 class Main(QDialog):
     def __init__(self, parent=None):
-        super().__init__(parent)
+        super(QDialog, self).__init__(parent)
 
         model = QFileSystemModel()
         index = model.setRootPath(QDir.currentPath())

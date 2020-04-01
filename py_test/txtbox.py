@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QPushButton, QVBoxLayout
 
 class Main(QDialog):
     def __init__(self, parent=None):
-        super().__init__(parent)
+        super(Main, self).__init__(parent)
 
         table = QTableWidget(2, 3)
         self.table = table
@@ -35,8 +35,8 @@ class Main(QDialog):
     def buttonClicked(self):
         for i in range(self.table.rowCount()):
             for j in range(self.table.columnCount()):
-                print(self.table.item(i, j).text(), end=" ")
-            print()
+                print(self.table.item(i, j).text())
+            print("")
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ from PyQt5.QtCore import Qt
 
 class Main(QDialog):
     def __init__(self, parent=None):
-        super().__init__(parent)
+        super(Main, self).__init__(parent)
 
         tree_widget = QTreeWidget()
         self.tree_widget = tree_widget
@@ -58,18 +58,18 @@ class Main(QDialog):
             print(branch.text(0))
             for j in range(branch.childCount()):
                 item = branch.child(j)
-                print("  ", end="")
+                print("  ")
                 for k in range(item.columnCount()):
-                    print(item.text(k), end=" ")
-                print()
+                    print(item.text(k))
+                print("")
 
         print("find: lemon")
         items = self.tree_widget.findItems("lemon", Qt.MatchRecursive)
         item = items[0]
-        print("  ", end="")
+        print("  ")
         for k in range(item.columnCount()):
-            print(item.text(k), end=" ")
-        print()
+            print(item.text(k))
+        print("")
 
 
 if __name__ == "__main__":

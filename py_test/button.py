@@ -9,7 +9,7 @@ from PyQt5.QtWidgets import QMainWindow, QPushButton, QApplication
 class Example(QMainWindow):
 
     def __init__(self):
-        super().__init__()
+        super(Example, self).__init__()
 
         self.initUI()
 
