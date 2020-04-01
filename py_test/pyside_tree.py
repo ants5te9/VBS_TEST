@@ -3,7 +3,7 @@
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5.QtWidgets import QVBoxLayout
-from PyQt5.QtWidgets import QTreeView
+from PyQt5.QtWidgets import QTreeView, QTreeWidgetItem
 
 import sys
 
@@ -173,8 +173,9 @@ def main():
     
     items = [(10, 'remi', 'hello world'),
              (12, 'remi', 'hoge hoge')]
-
+    
     model = treeModel(items)
+    model.addItems(items)
     
     dialog.setMinimumSize(400, 150)
     layout = QVBoxLayout(dialog)

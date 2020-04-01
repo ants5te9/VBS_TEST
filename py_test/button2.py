@@ -20,10 +20,10 @@ class Widget(QWidget):
 
     def myClose(self,event):
         confirmObject = QMessageBox.question(self,'Message',
-        'Are you sure to quit?',QtGui.QMessageBox.Yes |
-        QtGui.QMessageBox.No,QtGui.QMessageBox.No)
+        'Are you sure to quit?',QMessageBox.Yes |
+        QMessageBox.No,QMessageBox.No)
 
-        if confirmObject == QtGui.QMessageBox.Yes:
+        if confirmObject == QMessageBox.Yes:
             event.accept()
         else:
             event.ignore()

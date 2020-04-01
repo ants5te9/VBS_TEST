@@ -35,7 +35,7 @@ class Main(QDialog):
         tree_widget.addTopLevelItem(branch2)
 
         tree_widget.setColumnCount(3)
-        tree_widget.setHeaderLabels(["A", "B", "C"])
+        tree_widget.setHeaderLabels(["ID:Serial", "B", "C"])
 
         branch1.setExpanded(True)
         branch2.setExpanded(True)
